@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center"  fxLayoutGap="10px">
+    <div>
+      <button (click)="onToggleSide()" *ngIf="isMobileScreen" mat-icon-button color="accent" aria-label="Side Bar">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Brand</span>
+    </div>
+
+    <button mat-stroked-button>Logout</button>
+  </div>
+</mat-toolbar>

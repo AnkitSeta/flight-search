@@ -1,0 +1,58 @@
+<div class="container">
+  <div
+    class="card"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+  >
+    <span class="material-icons"> group </span> Total Users &nbsp;
+    <span class="primary bold"> {{ totalUsers }}</span>
+  </div>
+
+  <div
+    class="mt-4"
+    fxLayout="row"
+    fxLayoutAlign="space-around center"
+    fxLayoutGap="10px"
+  >
+    <div
+      class="card"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
+      Male Users &nbsp;
+      <span class="accent bold"> {{ maleUsers }}</span>
+    </div>
+    <div
+      class="card"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+    >
+      Female Users &nbsp;
+      <span class="accent bold"> {{ femaleUsers }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="totalUsers < 10" class="mt-4 progress-bar">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+      <div class="ft18">User Statics</div>
+
+      <div class="ft16">{{ totalUsers }}/10</div>
+    </div>
+    <mat-progress-bar
+      class="mt-4"
+      mode="determinate"
+      [value]="calUserPercent()"
+    ></mat-progress-bar>
+  </div>
+
+  <div *ngIf="totalUsers >= 10" class="mt-4 progress-bar">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+      <div class="ft18">All Users Added</div>
+
+      <span class="material-icons accent"> check_circle </span>
+    </div>
+  </div>
+</div>

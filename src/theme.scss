@@ -1,0 +1,50 @@
+@import "~@angular/material/theming";
+@import "~src/variables/_variables";
+
+@include mat-core();
+
+$my-primary: (
+  100: lighten($primary, 30%),
+  500: $primary,
+  700: darken($primary, 10%),
+  contrast: (
+    100: #0a0a0a,
+    500: #fdfbff,
+    700: #fdfbff,
+  ),
+);
+
+$my-accent: (
+  100: lighten($accent, 25%),
+  500: $accent,
+  700: darken($accent, 10%),
+  contrast: (
+    100: #0a0a0a,
+    500: #fdfbff,
+    700: #fdfbff,
+  ),
+);
+
+$my-warn: (
+  900: #e2123c,
+  contrast: (
+    900: #ffffff,
+  ),
+);
+
+$custom-typography: mat-typography-config(
+  $font-family: $default-font,
+);
+
+$agrobeet-app-primary: mat-palette($my-primary, 500, 100, 700);
+$agrobeet-app-accent: mat-palette($my-accent, 500, 100, 700);
+$agrobeet-app-warn: mat-palette($my-warn, 900);
+
+$agrobeet-app-theme: mat-light-theme(
+  $agrobeet-app-primary,
+  $agrobeet-app-accent,
+  $agrobeet-app-warn
+);
+
+@include angular-material-theme($agrobeet-app-theme);
+@include mat-core($custom-typography);
