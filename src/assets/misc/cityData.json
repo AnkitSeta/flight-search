@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Pune",
+    "cityCode": "PNQ"
+  },
+  {
+    "name": "Delhi",
+    "cityCode": "DEL"
+  },
+  {
+    "name": "Mumbai",
+    "cityCode": "BOM1"
+  }
+]

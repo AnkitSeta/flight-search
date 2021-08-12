@@ -1,12 +1,22 @@
 <mat-toolbar>
-  <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center"  fxLayoutGap="10px">
+  <div
+    fxLayout="row"
+    fxFlex="100"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="10px"
+  >
     <div>
-      <button (click)="onToggleSide()" *ngIf="isMobileScreen" mat-icon-button color="accent" aria-label="Side Bar">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Brand</span>
+      <span>Flight Search Engine</span>
     </div>
 
-    <button mat-stroked-button>Logout</button>
+    <button
+      (click)="onToggleSide()"
+      *ngIf="isMobileScreen"
+      mat-stroked-button
+      color="primary"
+      aria-label="Side Bar"
+    >
+      Filter <mat-icon>filter_list</mat-icon>
+    </button>
   </div>
 </mat-toolbar>

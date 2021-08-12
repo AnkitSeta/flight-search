@@ -14,14 +14,14 @@ export class AppComponent {
   isSideOpen: boolean = true;
 
   constructor(private observer: BreakpointObserver) {
-    this.onObserveScreenSize()
+    this.onObserveScreenSize();
   }
 
   onObserveScreenSize() {
     this.isMobileScreen = this.observer.isMatched('(max-width: 768px)');
     this.observer.observe('(max-width: 768px)').subscribe((res) => {
       this.isMobileScreen = res.matches;
-      if(this.isMobileScreen){ 
+      if (this.isMobileScreen) {
         this.sideMode = 'over';
       } else {
         this.sideMode = 'side';
@@ -29,7 +29,11 @@ export class AppComponent {
     });
   }
 
-  onToggleSide(){
+  onToggleSide() {
     this.isSideOpen = !this.isSideOpen;
+  }
+
+  onCloseSide() {
+    if (this.isMobileScreen) this.isSideOpen = false;
   }
 }

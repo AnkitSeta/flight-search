@@ -14,6 +14,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 const MATERIAL_MODEULES: any[] = [
   MatButtonModule,
@@ -29,7 +32,10 @@ const MATERIAL_MODEULES: any[] = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSnackBarModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSelectModule,
+  MatTabsModule,
+  MatButtonToggleModule
 ];
 
 @NgModule({

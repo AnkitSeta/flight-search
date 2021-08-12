@@ -1,0 +1,102 @@
+[
+  {
+    "price": 4500,
+    "type": "TWO_WAY",
+    "flight": {
+      "name": "AL-202",
+      "arrivalTime": "10:00 AM",
+      "departureTime": "12:00 PM",
+      "fromCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      },
+      "toCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      }
+    },
+    "flightDate": "2021-08-13",
+    "returnFlight": {
+      "name": "AL-203",
+      "arrivalTime": "08:00 9M",
+      "departureTime": "11:00 PM",
+      "fromCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      },
+      "toCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      }
+    },
+    "returnDate": "2021-08-15"
+  },
+  {
+    "price": 4800,
+    "type": "TWO_WAY",
+    "flight": {
+      "name": "AL-302",
+      "arrivalTime": "10:00 AM",
+      "departureTime": "12:00 PM",
+      "fromCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      },
+      "toCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      }
+    },
+    "flightDate": "2021-08-13",
+    "returnFlight": {
+      "name": "AL-302",
+      "arrivalTime": "08:00 9M",
+      "departureTime": "11:00 PM",
+      "fromCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      },
+      "toCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      }
+    },
+    "returnDate": "2021-08-15"
+  },
+  {
+    "price": 2500,
+    "type": "ONE_WAY",
+    "flight": {
+      "name": "AL-202",
+      "arrivalTime": "10:00 AM",
+      "departureTime": "12:00 PM",
+      "fromCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      },
+      "toCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      }
+    },
+    "flightDate": "2021-08-13"
+  },
+  {
+    "price": 4800,
+    "type": "ONE_WAY",
+    "flight": {
+      "name": "AL-302",
+      "arrivalTime": "10:00 AM",
+      "departureTime": "12:00 PM",
+      "fromCity": {
+        "name": "Pune",
+        "cityCode": "PNQ"
+      },
+      "toCity": {
+        "name": "Delhi",
+        "cityCode": "DEL"
+      }
+    },
+    "flightDate": "2021-08-13"
+  }
+]

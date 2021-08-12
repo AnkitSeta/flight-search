@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,19 +8,22 @@ import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { FlightFiltersComponent } from './sidebar/flight-filters/flight-filters.component';
+import { AllFlightsComponent } from './all-flights/all-flights.component';
+import { FlightCardsComponent } from './all-flights/flight-cards/flight-cards.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
-    UsersComponent,
-    UserDialogComponent,
+    FlightFiltersComponent,
+    AllFlightsComponent,
+    FlightCardsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,11 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'INR' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

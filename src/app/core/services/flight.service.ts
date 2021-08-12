@@ -1,21 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { JourneyDTO } from '../models/flight.model';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsersService {
-  //Store Users Data
-  users = new BehaviorSubject<any[]>([]);
+export class FlightService {
+  flights = new BehaviorSubject<JourneyDTO[]>([]);
+  filters = new Subject<any>();
+
   constructor(private http: HttpClient) {}
 
-  //Return observable for Users data form Json and updates Users
-  get() {
-    return this.http.get<any[]>(`./assets/misc/userDate.json`).pipe(
+  getAll() {
+    return this.http.get<JourneyDTO[]>(`./assets/misc/flightData.json`).pipe(
       tap((res: any[]) => {
-        this.users.next(res);
+        this.flights.next(res);
       })
     );
   }

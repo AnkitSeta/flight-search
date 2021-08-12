@@ -1,12 +1,16 @@
 <div>
   <mat-sidenav-container fullscreen>
-    <mat-sidenav [mode]="sideMode" [(opened)]="isSideOpen" class="side-nav">
-      <app-sidebar></app-sidebar>
+    <mat-sidenav
+      [mode]="sideMode"
+      [(opened)]="isSideOpen"
+      class="side-nav"
+      [position]="isMobileScreen? 'end' : 'start'"
+    >
+      <app-sidebar (closeFilter)="onCloseSide()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content>
       <app-navbar (toggleSide)="onToggleSide()"></app-navbar>
-
-      <app-users></app-users>
+      <app-all-flights></app-all-flights>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

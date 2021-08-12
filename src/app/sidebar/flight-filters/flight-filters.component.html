@@ -1,0 +1,134 @@
+<form autocomplete="off" [formGroup]="filterForm" class="container p-4">
+  <div class="py-4 flex justify-center items-center">
+    <mat-button-toggle-group
+      (change)="onFlightTypeChange($event.value)"
+      formControlName="type"
+      aria-label="Flight Type"
+    >
+      <mat-button-toggle value="TWO_WAY">Return</mat-button-toggle>
+      <mat-button-toggle value="ONE_WAY">One Way</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="flex justify-between flex-col">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>From City</mat-label>
+      <mat-select
+        (selectionChange)="onFromCitySelect($event.value)"
+        formControlName="fromCity"
+        required
+      >
+        <mat-option *ngFor="let city of cities | async" [value]="city.cityCode">
+          {{ city.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        align="end"
+        *ngIf="
+          formRef()['fromCity'].touched &&
+          formRef()['fromCity'].hasError('required')
+        "
+      >
+        This field is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>To City</mat-label>
+      <mat-select formControlName="toCity" required>
+        <mat-option
+          [disabled]="compareCities(city?.cityCode)"
+          *ngFor="let city of cities | async"
+          [value]="city.cityCode"
+        >
+          {{ city.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        align="end"
+        *ngIf="
+          formRef()['toCity'].touched &&
+          formRef()['toCity'].hasError('required')
+        "
+      >
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field
+    *ngIf="flightType === 'TWO_WAY'"
+    class="w-full"
+    appearance="outline"
+  >
+    <mat-label>Enter Journey Dates</mat-label>
+    <mat-date-range-input [rangePicker]="picker" [min]="today">
+      <input
+        matStartDate
+        formControlName="flightDate"
+        placeholder="Departure date"
+      />
+      <input
+        matEndDate
+        formControlName="returnDate"
+        placeholder="Return date"
+      />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    *ngIf="flightType === 'ONE_WAY'"
+    class="w-full"
+  >
+    <mat-label>Departure date</mat-label>
+    <input
+      formControlName="flightDate"
+      required
+      [min]="today"
+      matInput
+      [matDatepicker]="picker"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error
+      align="end"
+      *ngIf="
+        formRef()['flightDate'].touched &&
+        formRef()['flightDate'].hasError('required')
+      "
+    >
+      This field is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Number of Passangers</mat-label>
+    <mat-select formControlName="passange">
+      <mat-option *ngFor="let pass of passangers" [value]="pass">
+        {{ pass }}
+      </mat-option>
+    </mat-select>
+    <mat-error
+      align="end"
+      *ngIf="
+        formRef()['passange'].touched &&
+        formRef()['passange'].hasError('required')
+      "
+    >
+      This field is required
+    </mat-error>
+  </mat-form-field>
+
+  <div class="flex justify-end items-center p-4 border-t">
+    <button
+      (click)="onSubmit()"
+      [disabled]="filterForm.invalid"
+      mat-stroked-button
+      color="accent"
+    >
+      <mat-icon>search</mat-icon> Search
+    </button>
+  </div>
+</form>

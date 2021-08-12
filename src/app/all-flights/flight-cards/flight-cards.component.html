@@ -1,0 +1,71 @@
+<div
+  *ngIf="journey"
+  class="shadow rounded-md p-6 bg-white flex md:flex-row flex-col w-full justify-between"
+>
+  <div>
+    <div class="flex flex-col justify-between gap-3">
+      <div class="flex gap-4 items-center flex-wrap" *ngIf="journey.flight">
+        <div class="text-gray-600 text-lg flex items-center gap-2">
+          <span class="material-icons text-accent"> airplane_ticket </span>
+          {{ journey.flight?.name }}
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="text-right">
+            <div class="text-2xl">{{ journey.flight?.fromCity?.name }}</div>
+          </div>
+          <span class="material-icons"> trending_flat </span>
+          <div class="text-left">
+            <div class="text-2xl">{{ journey.flight?.toCity?.name }}</div>
+          </div>
+        </div>
+
+        <div class="self-end">
+          <div>
+            <span class="text-sm text-gray-500">Departure :</span> &nbsp;
+            {{ journey.flight?.departureTime }}
+          </div>
+          <div>
+            <span class="text-sm text-gray-500">Arrival : </span> &nbsp; &nbsp;
+            &nbsp; &nbsp; {{ journey.flight?.arrivalTime }}
+          </div>
+        </div>
+      </div>
+
+      <hr *ngIf="journey.returnFlight">
+
+      <div class="flex gap-4 items-center flex-wrap" *ngIf="journey.returnFlight">
+        <div class="text-gray-600 text-lg flex items-center gap-2">
+          <span class="material-icons flip_H text-accent"> airplane_ticket </span>
+          {{ journey.returnFlight?.name }}
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="text-right">
+            <div class="text-2xl">{{ journey.returnFlight?.fromCity?.name }}</div>
+          </div>
+          <span class="material-icons"> trending_flat </span>
+          <div class="text-left">
+            <div class="text-2xl">{{ journey.returnFlight?.toCity?.name }}</div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span class="text-sm text-gray-500">Departure :</span> &nbsp;
+            {{ journey.returnFlight?.departureTime }}
+          </div>
+          <div>
+            <span class="text-sm text-gray-500">Arrival : </span> &nbsp; &nbsp;
+            &nbsp; &nbsp; {{ journey.returnFlight?.arrivalTime }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row md:flex-col mt-4 md:mt-0 justify-between items-end">
+    <div class="text-3xl pb-2">
+      {{ journey.price | currency: "INR":"symbol":"1.0-0" }}
+    </div>
+    <button mat-flat-button color="primary">Book this Flight</button>
+  </div>
+</div>

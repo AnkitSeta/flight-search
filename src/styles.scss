@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 @import "~src/variables/_variables";
 
 /* You can add global styles to this file, and also import other style files */
@@ -11,15 +15,15 @@ body {
   font-family: $default-font;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
-.primary{
+.primary {
   color: $primary;
 }
 
-.accent{
+.accent {
   color: $accent;
 }
 
@@ -37,4 +41,8 @@ body {
 }
 .ft22 {
   font-size: 22px !important;
+}
+
+.flip_H {
+  transform: scale(-1, 1);
 }
